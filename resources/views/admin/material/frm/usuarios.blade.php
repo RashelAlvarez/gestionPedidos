@@ -1,5 +1,5 @@
 <div class="modal" id="exampleModalLong" tabindex="-1" role="dialog" aria-hidden="true">>
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog " role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Crear usuario</h5>
@@ -38,7 +38,7 @@
 
                   <div class="col-sm-12">
                     <div class="form-group {{ $errors->has('role_id') ? 'has-error' : ''}}"> 
-                      <select class="select form-control-sm custom-select" id="role_id" name="role_id">
+                      <select class="select form-control-sm custom-select" id="role" name="role">
                           <option selected disabled>Tipo de Usuario</option>
                           
                             @foreach ($roles as $role)

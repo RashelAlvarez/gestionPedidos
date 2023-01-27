@@ -86,6 +86,9 @@ class CostosController extends Controller
     public function edit($id)
     {
         //
+        $result= Costos::findOrFail($id);
+        
+        return response()->json($result);
     }
 
     /**

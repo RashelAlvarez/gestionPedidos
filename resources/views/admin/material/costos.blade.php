@@ -57,10 +57,10 @@ Turza | Costos
                         <td>{{$item->precio_unitario}}</td>
                 
                           <td>
-                            <a type="button" href="{{url('/clientes/'.$item->id.'/edit')}}"  id="modificarCliente" data-toggle="modal" data-target="#frmModificarCliente" > 
-                              <span class="material-icons yellow">
-                              create
-                              </span></a>
+                            <button class="btn btn-warning btn-sm" href="{{url('/costos/'.$item->id.'/edit')}}" data-id="{{$item->id}}"  id="modificarCostos"  onclick="obtenerCostos('{{$item->id}}')" data-toggle="modal" data-target="#frmModificarCostos" > 
+                              <span class="material-icons ">
+                                create
+                                </span></button>
                          
                           </td>
                       
@@ -78,7 +78,20 @@ Turza | Costos
         </div>
       </div>
       
-@include('admin.material.frm.costos')
+<script>
+  function obtenerCostos(id){
+  var route ="{{url('costos')}}/"+id+"/edit";
+  $.get(route, function(data){
+    $('#cliente_id').val(data.idcliente);
+    $('#producto_id').val(data.idproducto);
+    $('#precio').val(data.precio_unitario);
+ 
+  })
+}
+</script>
+@include('admin/material/frm/costos')
+@include('admin/material/frm/modificarCostos')
+
 
 
 

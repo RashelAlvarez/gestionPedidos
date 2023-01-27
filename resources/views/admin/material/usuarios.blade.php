@@ -59,11 +59,12 @@ Turza | Usuarios
             <td>{{$user->created_at->format('d-m-Y')}}</td>
             <td>
       
-              <button href="{{url('/usuarios/'.$user->id.'/edit')}}" data-id="{{$user->id}}"  class="btn btn-warning btn-sm" id="edit" name="id"    data-toggle="modal" data-target="#frmModificarUsuario" >
+              <button href="{{url('/usuarios/'.$user->id.'/edit')}}" data-id="{{$user->id}}"  class="btn btn-warning btn-sm" id="modificarUsuario" rel="tooltip" title="Modificar" name="id"  onclick="obtenerUsuario('{{$user->id}}')"  data-toggle="modal" data-target="#frmModificarUsuario" >
                   <span class="material-icons ">
                     create
                     </span>
                   </button>
+         
             
  
             </td>
@@ -87,7 +88,7 @@ Turza | Usuarios
 
 
  
-  $(document).ready(function() {
+  /*$(document).ready(function() {
 
 
 
@@ -115,28 +116,16 @@ Turza | Usuarios
             } );
 
 
-// edit city code goes here
-                $(document).on('click', '#edit', function() {
-                    $.ajax({
-                        url: "{{url('usuarios')}}/"+id+"/edit",
-                        type: "post",
-                        dataType: 'json',
-                        data: {
-                            "_token": "{{ csrf_token() }}",
-                            "id": $(this).data('id')
-                            
-                        },
-                        success: function(response) {
-                          alert(response);
-                       
-                       $('input[name="email"]').val(response.data.email);
-                 
-                            
-                        }
-                    });
-                });
-
   });
+*/
+
+  function obtenerUsuario(id){
+    var route ="{{url('usuarios')}}/"+id+"/edit";
+    $.get(route, function(data){
+      $('#rol').val(data.role_id);
+      $('#email').val(data.email);
+    })
+  }
 
  
 
@@ -147,4 +136,5 @@ Turza | Usuarios
 
 @include('admin/material/frm/usuarios')
 @include('admin/material/frm/modificarUsuario')
+
 @endsection

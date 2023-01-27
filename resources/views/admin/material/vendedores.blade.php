@@ -45,9 +45,10 @@ Turza | Vendedores
                
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Rif</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
-                <th>Modificar</th> 
+                <th>Acciones</th> 
          
             </thead>
             <tbody>
@@ -57,15 +58,16 @@ Turza | Vendedores
             
             <td >{{$item->nombre}}</td>
             <td >{{$item->apellido}}</td>
+            <td >{{$item->rif}}</td>
             <td >{{$item->direccion}}</td>
             <td >{{$item->telefono}}</td>
             <td>
        
-                <a type="button" href="{{url('/vendedor/'.$item->id.'/edit')}}"  rel="tooltip" title="Modificar" class="btn btn-warning btn-sm" id="modificarUsuario"  data-toggle="modal" data-target="#frmModificarUsuario" >
+                <button  href="{{url('/vendedor/'.$item->id.'/edit')}}"  data-id="{{$item->id}}" onclick="obtenerVendedor('{{$item->id}}')" rel="tooltip" title="Modificar" class="btn btn-warning btn-sm" id="modificarVendedor"  data-toggle="modal" data-target="#frmModificarVendedor" >
                     <span class="material-icons ">
                       create
                       </span>
-                    </a>
+                    </button>
             </td>
             
           </tr>
@@ -84,9 +86,23 @@ Turza | Vendedores
     </div>
   </div>
 
-
-  @include('admin/material/frm/vendedor')
+  <script>
+    function obtenerVendedor(id){
+    var route ="{{url('vendedor')}}/"+id+"/edit";
+    $.get(route, function(data){
+      $('#nombre').val(data.nombre);
+      $('#apellido').val(data.apellido);
+      $('#rif').val(data.rif);
+      $('#direccion').val(data.direccion);
+      $('#telefono').val(data.telefono);
+    })
+  }
   
+  </script>
+  
+  @include('admin/material/frm/vendedor')
+  @include('admin/material/frm/modificarVendedor')
 @endif
+
 
   @endsection

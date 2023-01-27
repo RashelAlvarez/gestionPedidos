@@ -37,9 +37,9 @@ class ClientesController extends Controller
         $clientes2=DB::table('clientes')
         ->select('clientes.id', 'clientes.nombre', 'clientes.apellido', 'razon_social', 'clientes.rif', 'clientes.telefono', 
         'clientes.direccion', 'vendedors.nombre as usvendedor', 'clientes.created_at', 'clientes.file' )
-        ->join('vendedors', 'clientes.vendedor_id', '=', 'vendedors.id')
-       
+        ->join('vendedors', 'clientes.vendedor_id', '=', 'vendedors.id')     
         ->get();
+        //dd($clientes2);
 
         $vendedor=DB::table('vendedors')
         ->select('vendedors.id', 'vendedors.nombre', 'vendedors.apellido')
@@ -140,9 +140,9 @@ class ClientesController extends Controller
     public function edit($id)
     {
         //
-        $user= User::findOrFail($id);
-        
-        return view('admin.material.frm.modificarCliente', compact('user'));
+        $result= Cliente::findOrFail($id);
+        return response()->json($result);
+        //return view('admin.material.frm.modificarCliente', compact('user'));
 
     }
 
@@ -155,19 +155,20 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-       /*  dd($request->all()); */
-        $user= User::findOrFail($id);
-        $user->razon_social = $request->get('razon_social');
-        $user->rif = $request->get('rif');
-        $user->telefono =$request->get('telefono');
-        $user->direccion = $request->get('direccion');
-
   
-
-        $user->save();
-        session()->flash('exito', 'Se ha actualizado los datos correctamente');
-        return redirect('/clientes');
+          $clientes = Cliente::findOrFail($id);
+          $clientes->nombre=$request->nombre;
+          $clientes->apellido=$request->apellido;
+          $clientes->razon_social=$request->razon_social;
+          $clientes->rif=$request->rif;
+          $clientes->telefono=$request->telefono;
+          $clientes->direccion=$request->direccion;
+          $clientes->vendedor_id=$request->vendedor;
+          //$clientes->update($request->all());
+            $clientes->save();
+          //REDIRECCIONAR
+      
+          return redirect()->route('clientes.index');
     }
 
     /**

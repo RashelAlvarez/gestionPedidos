@@ -7,38 +7,67 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form class="form"  method="post" action="{{url('/clientes/'.$item->id)}}">
+        <form class="form"  method="post" action="{{route('clientes.update', $clientess->id)}}">
             {!! csrf_field()  !!}
           
             {{method_field('PATCH')}}
             <div class="modal-body" id="body">
             
-            
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label class="bmd-label-static"> Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre"  >
+                    <span class="text-danger">{!! $errors->first('nombre', '<span class=error>:message</span>') !!}</span>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label class="bmd-label-static">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido"   >
+                    <span class="text-danger">{!! $errors->first('apellido', '<span class=error>:message</span>') !!}</span>
+                </div>
+              </div>
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="razon_social"  placeholder="Razón Social" value="{{$item->razon_social}}">
+                      <label class="bmd-label-static"> Razon Social</label>
+                        <input type="text" class="form-control" name="razon_social" id="razon_social"  >
                         <span class="text-danger">{!! $errors->first('razon_social', '<span class=error>:message</span>') !!}</span>
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="rif"  placeholder="Rif" value="{{$item->rif}}">
+                      <label class="bmd-label-static"> Rif</label>
+                        <input type="text" class="form-control" name="rif" id="rif" >
                         <span class="text-danger">{!! $errors->first('rif', '<span class=error>:message</span>') !!}</span>
                      </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="telefono"  placeholder="Teléfono" value="{{$item->telefono}}">
+                      <label class="bmd-label-static"> Telefono</label>
+                        <input type="text" class="form-control" name="telefono" id="telefono"   >
                         <span class="text-danger">{!! $errors->first('telefono', '<span class=error>:message</span>') !!}</span>
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="direccion"  placeholder="Dirección" value="{{$item->direccion}}">
+                      <label class="bmd-label-static"> Direccion</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion"  >
                         <span class="text-danger">{!! $errors->first('direccion', '<span class=error>:message</span>') !!}</span>
                     </div>
                   </div>
-                
+
+                  <div class="col-sm-12">
+                    <div class="form-group"> 
+                      <select class="select form-control-sm custom-select" id="vendedor" name="vendedor" required>
+                      <option value="">--Vendedor--</option>
+              
+                        @foreach ($vendedor as $item)
+                          <option value="{{$item->id}}">{{$item->nombre}} {{$item->apellido}}</option>
+                        @endforeach
+                    </select>
+                    <span class="text-danger">{!! $errors->first('vendedor', '<span class=error>Seleccione una opción</span>') !!}</span>
+                    </div>
+                    </div>
              
                   
 

@@ -240,7 +240,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>, 
-            <a  target="_blank">Alimento SoloAlimentos,C.A</a>
+            <a  target="_blank">Rashel Alvarez</a>
           </div>
           <!-- your footer here -->
         </div>

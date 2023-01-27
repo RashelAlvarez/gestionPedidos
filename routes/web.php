@@ -37,7 +37,10 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::resource('/usuarios', 'UsuarioController');
 Route::post('/usuariosindex', 'UsuarioController@index');
-/* Route::post('/usuariosedit', 'UsuarioController@editt'); */
+// Route::post('/usuariosedit', 'UsuarioController@editt')->name(); 
+ Route::get('usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+ Route::put('usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update'); //modifica un mensaje en especifo
+
 Route::resource('/clientes', 'ClientesController');
 
 Route::resource('/productad', 'ProductAdController');

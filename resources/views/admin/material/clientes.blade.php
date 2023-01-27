@@ -58,17 +58,17 @@ Turza | Clientes
          
            
             
-                @foreach($clientes as $item)
+                @foreach($clientes as $clientess)
                         
                   
                   <tr>
                   <td>{{$loop->iteration}}</td>
-                  <td>{{$item->nombre}}</td>
-                  <td>{{$item->apellido}}</td>
-                    <td>{{$item->razon_social}}</td>
-                    <td>{{$item->rif}}</td>
-                    <td>{{$item->telefono}}</td>
-                    <td>{{$item->direccion}}</td>
+                  <td>{{$clientess->nombre}}</td>
+                  <td>{{$clientess->apellido}}</td>
+                    <td>{{$clientess->razon_social}}</td>
+                    <td>{{$clientess->rif}}</td>
+                    <td>{{$clientess->telefono}}</td>
+                    <td>{{$clientess->direccion}}</td>
                   {{--   <td>
                       <a href="{{route('clientes.show', $item->file)}}" target="_blank">
                           <i class="fa fa-eye" aria-hidden="true"></i>
@@ -78,14 +78,14 @@ Turza | Clientes
                               
                       </td> --}}
                    
-                    <td>{{$item->usvendedor}}</td>
-                    <td>{{Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
+                    <td>{{$clientess->usvendedor}}</td>
+                    <td>{{Carbon\Carbon::parse($clientess->created_at)->format('d-m-Y')}}</td>
           
                     <td>
-                      <a type="button" href="{{url('/clientes/'.$item->id.'/edit')}}"  id="modificarCliente" data-toggle="modal" data-target="#frmModificarCliente" > 
-                        <span class="material-icons yellow">
-                        create
-                        </span></a>
+                      <button class="btn btn-warning btn-sm"  href="{{url('/clientes/'.$clientess->id.'/edit')}}"  rel="tooltip" title="Modificar" data-id="{{$clientess->id}}" id="modificarCliente" data-toggle="modal" onclick="obtenerClientes('{{$clientess->id}}')" data-target="#frmModificarCliente" > 
+                        <span class="material-icons ">
+                          create
+                          </span></button>
                         @if  (auth()->user()->hasRoles(['Administrador']))
                           <a type="button" href="#" > <span class="material-icons red600">
                             delete_outline
@@ -119,32 +119,32 @@ Turza | Clientes
          
            
             
-                @foreach($clientes2 as $item)
+                @foreach($clientes2 as $clientess)
                         
                   
                   <tr>
                   <td>{{$loop->iteration}}</td>
-                  <td>{{$item->nombre}}</td>
-                  <td>{{$item->apellido}}</td>
-                    <td>{{$item->razon_social}}</td>
-                    <td>{{$item->rif}}</td>
-                    <td>{{$item->telefono}}</td>
-                    <td>{{$item->direccion}}</td>
+                  <td>{{$clientess->nombre}}</td>
+                  <td>{{$clientess->apellido}}</td>
+                    <td>{{$clientess->razon_social}}</td>
+                    <td>{{$clientess->rif}}</td>
+                    <td>{{$clientess->telefono}}</td>
+                    <td>{{$clientess->direccion}}</td>
                     <td>
-                      <a href="{{route('clientes.show', $item->file)}}" target="_blank">
+                      <a href="{{route('clientes.show', $clientess->file)}}" target="_blank">
                           <i class="fa fa-eye" aria-hidden="true"></i>
                         
                       </a>
                               
                       </td>
                    
-                    <td>{{$item->usvendedor}}</td>
+                    <td>{{$clientess->usvendedor}}</td>
                     <td>{{Carbon\Carbon::parse($item->created_at)->format('d-m-Y')}}</td>
                     <td>
-                      <a type="button" href="{{url('/clientes/'.$item->id.'/edit')}}"  id="modificarCliente" data-toggle="modal" data-target="#frmModificarCliente" > 
-                        <span class="material-icons yellow">
-                        create
-                        </span></a>
+                      <button class="btn btn-warning btn-sm"  href="{{url('/clientes/'.$clientess->id.'/edit')}}"  data-id="{{$clientess->id}}"  rel="tooltip" title="Modificar" id="modificarCliente" data-toggle="modal" onclick="obtenerClientes('{{$clientess->id}}')" data-target="#frmModificarCliente" > 
+                        <span class="material-icons ">
+                          create
+                          </span></button>
                         @if  (auth()->user()->hasRoles(['Administrador']))
                           <a type="button" href="#" > <span class="material-icons red600">
                             delete_outline
@@ -167,13 +167,26 @@ Turza | Clientes
 
 
 
-
+<script>
+    function obtenerClientes(id){
+    var route ="{{url('clientes')}}/"+id+"/edit";
+    $.get(route, function(data){
+      $('#nombre').val(data.nombre);
+      $('#apellido').val(data.apellido);
+      $('#razon_social').val(data.razon_social);
+      $('#rif').val(data.rif);
+      $('#telefono').val(data.telefono);
+      $('#direccion').val(data.direccion);
+      $('#vendedor').val(data.vendedor_id);
+    })
+  }
+</script>
 
 
 @include('admin/material/frm/clientes')
 
 
-@if (isset($item->id))
+@if (isset($clientess->id))
 
 @include('admin/material/frm/modificarCliente')
 @endif

@@ -14,6 +14,7 @@ use App\Estatus;
 use App\Notifications\Pedidos;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserRequest;
 class UsuarioController extends Controller
 {
     /**
@@ -123,8 +124,10 @@ class UsuarioController extends Controller
        /*  $user= User::findOrFail($id);
         $roles=Role::all();
         return  response()->json($user); */
-        $result = User::where('role_id', $id)->first();
-       
+        $result = User::findOrFail($id);
+        $role= Role::all();
+       // $result = User::where('role_id', $id)->first();
+       return response()->json($result);
         
         if($result) {
             return response()->json([
@@ -138,7 +141,7 @@ class UsuarioController extends Controller
                 "code"    => 500
             ]);
         }
-
+       // return view('admin.material.frm.modificarUsuario', compact('result'));
 
 
     }
@@ -155,10 +158,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         //
-        dd($request->all());
+     /*   dd($request->all());
         $user= User::findOrFail($id);
         $user->nombre = $request->get('nombre');
         $user->apellido = $request->get('apellido');
@@ -169,6 +172,15 @@ class UsuarioController extends Controller
 
         $user->save();
         
+        session()->flash('exito', 'Se ha actualizado los datos correctamente');
+        return redirect('/usuarios');*/
+
+            //
+        //ACTUALIZAR MENSAJE con eloquent/** */
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+      
+        //REDIRECCIONAR
         session()->flash('exito', 'Se ha actualizado los datos correctamente');
         return redirect('/usuarios');
     

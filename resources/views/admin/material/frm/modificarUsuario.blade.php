@@ -7,36 +7,37 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form class="form" id="form" method="post" {{-- action="{{url('/usuarios/'.$user->id)}}" --}}>
-            {!! csrf_field()  !!}
-          
-            {{method_field('PATCH')}}
+        <form class="form"  method="post" action="{{route('usuarios.update', $user->id)}}">
+          @csrf
+          {!! method_field('PUT')!!}
             <div class="modal-body" id="body">
             
            
                   <div class="col-sm-12">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Correo" {{-- value="{{$user->email}}" --}}>
+                      <label class="bmd-label-static"> Correo</label>
+                    <input type="text" class="form-control" name="email" id="email"   >
                         <span class="text-danger">{!! $errors->first('correo', '<span class=error>:message</span>') !!}</span>
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" >
+                      <label class="bmd-label-static"> Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password"  >
                         <span class="text-danger">{!! $errors->first('password', '<span class=error>:message</span>') !!}</span>
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <div class="form-group">
-                      
-                        <input  type="password" class="form-control" name="password_confirmation" placeholder="Confirmar Contraseña"  required autocomplete="new-password">
+                      <label class="bmd-label-static"> Confirmar Contraseña</label>
+                        <input  type="password" class="form-control" name="password_confirmation"   required autocomplete="new-password">
                         <span class="text-danger">{!! $errors->first('password', '<span class=error>:message</span>') !!}</span>
                     </div>
                 </div>
                 
                 <div class="col-sm-12">
                     <div class="form-group"> 
-                      <select class="select form-control-sm custom-select" id="role_id" name="role_id">
+                      <select class="select form-control-sm custom-select" id="rol" name="role_id" required>
                       <option value="">--Tipo de Usuario--</option>
               
                         @foreach ($roles as $role)

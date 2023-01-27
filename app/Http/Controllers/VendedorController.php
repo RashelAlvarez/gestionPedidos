@@ -37,4 +37,16 @@ class VendedorController extends Controller
         return redirect('/vendedor')->with('exito', 'Datos registrados correctamente');; 
 
     }
+
+    public function edit($id)
+    {
+     
+        $result = Vendedor::findOrFail($id);
+     
+       return response()->json($result);
+        
+     
+     
+
+    }
 }

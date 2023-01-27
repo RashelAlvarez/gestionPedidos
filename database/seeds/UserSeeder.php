@@ -39,5 +39,17 @@ class UserSeeder extends Seeder
 
 
               ));
+              DB::table('users')->insert(
+                array(
+                  'role_id' => '3',
+               
+       
+                  'email' => 'rashelalvarez21@gmail.com',
+                  'password' => Hash::make('123456'),
+                  'created_at' => Carbon::now(),
+              'updated_at' => Carbon::now(),
+  
+  
+                ));
     }
 }
