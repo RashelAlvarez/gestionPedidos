@@ -21,11 +21,7 @@ Route::get('catalogo', 'CatalogoController@index' )->name('catalogo');
 Route::get('productos', 'ProductosController@index' );
 Route::get('login', 'LoginController@showLoginForm' );
 
-/* Route::get('contacto', 'ContactoController@index' ); */
-//Route::resource('contacto', 'ContactoController');
-/* Route::post('contacto', 'ContactoController@store' )->name('contacto-create');  */
-/* Route::get('registrar', 'RegistroController@index' );
-Route::post('registrar', 'RegistroController@store')->name('registrar.store'); */
+
 
  Route::resource('detalle', 'DetalleController');
 
@@ -36,10 +32,9 @@ Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::resource('/usuarios', 'UsuarioController');
-Route::post('/usuariosindex', 'UsuarioController@index');
-// Route::post('/usuariosedit', 'UsuarioController@editt')->name(); 
- Route::get('usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
- Route::put('usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update'); //modifica un mensaje en especifo
+//Route::post('/usuariosindex', 'UsuarioController@index');
+ //Route::get('usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+ //Route::put('usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update'); //modifica un mensaje en especifo
 
 Route::resource('/clientes', 'ClientesController');
 
@@ -53,9 +48,7 @@ Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
 
 Route::resource('/pedidos', 'PedidosController');
 Route::post('/pedidosvendedor', 'PedidosVendedorController@store')->name('pedidosvendedor.store');
-/* 
 
-Route::put('actualizar-usuario/{usuario}', 'UsuarioController@update'); */
 Route::get('/pedidos/{pedido}/mostrarOrden', 'PedidosController@mostrarOrden')->name('mostrarOrden');
 
 Route::resource('/vendedor', 'VendedorController');
