@@ -30,7 +30,7 @@
 			owl: $(".owl-carousel"),
 			swiper: $(".swiper-slider"),
 			counter: $(".counter"),
-			preloader: $(".preloader"),
+		//	preloader: $(".preloader"),
 			captcha: $('.recaptcha'),
 			scroller: $(".scroll-wrap"),
 			lightGallery: $("[data-lightgallery='group']"),
@@ -41,7 +41,7 @@
 		};
 
 	// Initialize scripts that require a loaded page
-	$window.on('load', function () {
+/*	$window.on('load', function () {
 		// Page loader & Page transition
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
@@ -65,14 +65,14 @@
 				}
 			});
 		}
-	});
+	});*/
 
 	// Initialize scripts that require a finished document
 	$(function () {
 		isNoviBuilder = window.xMode;
 
 		// Page loader & Page transition
-		if (plugins.preloader.length && !isNoviBuilder) {
+	/*	if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
 				target: document.querySelector('.page'),
 				delay: 100,
@@ -93,7 +93,7 @@
 					windowReady = true;
 				}
 			});
-		}
+		}*/
 
 		/**
 		 * @desc Calculate the height of swiper slider basing on data attr

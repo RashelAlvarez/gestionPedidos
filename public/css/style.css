@@ -4328,8 +4328,20 @@ textarea.textarea-lg {
 }
 
 @media (min-width: 576px) {
-	.product-2 {
+
+	.product-2 .product-figure {
 		max-width: none;
+	}
+	.product-2 .product-button {
+		display: block;
+		background-color: #000;
+	}
+	.product-2 .button.button-sm {
+		display: none;
+	}
+	.product-2 .product-title{
+		position: relative;
+		
 	}
 }
 
@@ -4351,6 +4363,10 @@ textarea.textarea-lg {
 	}
 	.product-2 .button.button-sm {
 		display: none;
+	}
+	.product-2 .product-title{
+		display: flex;
+		
 	}
 }
 
@@ -5690,7 +5706,7 @@ html [class*='section-'].section-top-0 {
 	right: 0;
 	z-index: 1;
 	height: 26px;
-	background: url("../images/bg-top.png") center center;
+/*	background: url("../images/bg-top.png") center center;*/
 	background-size: cover;
 	
 }

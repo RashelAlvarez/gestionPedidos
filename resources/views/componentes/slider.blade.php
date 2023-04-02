@@ -1,4 +1,4 @@
-<section class="section swiper-container swiper-slider swiper-slider-modern head1" data-loop="true" data-autoplay="5000" data-simulate-touch="true" data-nav="true" data-slide-effect="fade">
+<!--<section class="section swiper-container swiper-slider swiper-slider-modern head1" data-loop="true" data-autoplay="5000" data-simulate-touch="true" data-nav="true" data-slide-effect="fade">
 
 
       <div class="col d-flex align-content-center flex-wrap ml-5 mb-5 pb-5 ">
@@ -18,4 +18,4 @@
            
  
   
-</section>
+</section>-->

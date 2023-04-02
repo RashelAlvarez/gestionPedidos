@@ -32,9 +32,6 @@ Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::resource('/usuarios', 'UsuarioController');
-//Route::post('/usuariosindex', 'UsuarioController@index');
- //Route::get('usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
- //Route::put('usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update'); //modifica un mensaje en especifo
 
 Route::resource('/clientes', 'ClientesController');
 
