@@ -113,7 +113,7 @@ $('.close-modal').click(function(){
 
 });
 
-/*$window.on('load', function () {
+$window.on('load', function () {
     // Page loader & Page transition
     if (plugins.preloader.length && !isNoviBuilder) {
         pageTransition({
@@ -137,10 +137,10 @@ $('.close-modal').click(function(){
             }
         });
     }
-});*/
+});
 
 // Initialize scripts that require a finished document
-/*$(function () {
+$(function () {
     isNoviBuilder = window.xMode;
 
     // Page loader & Page transition
@@ -166,4 +166,4 @@ $('.close-modal').click(function(){
             }
         });
     }
-});*/
+});

@@ -1260,8 +1260,8 @@ p + .list-custom {
 	.list-custom-2 {
 		columns: 2;
 		break-inside: avoid;
-		-moz-column-gap: 30px;
-		-webkit-column-gap: 30px;
+	/*	-moz-column-gap: 30px;
+		-webkit-column-gap: 30px;*/
 	}
 }
 
@@ -1298,7 +1298,7 @@ img {
 	display: inline-block;
 	font-weight: 400;
 	font-style: normal;
-	speak: none;
+	/*speak: none;*/
 	text-transform: none;
 }
 
@@ -3897,7 +3897,7 @@ textarea.textarea-lg {
 
 .snackbars-right {
 	display: inline-block;
-	float: right;
+/*	float: right;*/
 	text-transform: uppercase;
 }
 
@@ -4926,7 +4926,7 @@ html.boxed body {
 		background: -webkit-linear-gradient(transparent, transparent);
 		background: -o-linear-gradient(transparent, transparent);
 		background: url(../images/text-image.jpg) repeat;
-		-webkit-background-clip: text;
+	/*	-webkit-background-clip: text;*/
 		background-position-y: 40%;
 		animation: imgPos 5s linear normal infinite paused;
 	}
@@ -5711,10 +5711,10 @@ html [class*='section-'].section-top-0 {
 	
 }
 
-.section-top-image-dark:before {
+/*.section-top-image-dark:before {
 	/*background: url("../images/bg-top.png") center center;*/
 
-}
+/*}*/
 
 /*
 *
@@ -7314,8 +7314,8 @@ html.tablet .ui-to-top {
 .rd-navbar-static .rd-megamenu-list {
 	columns: 2;
 	break-inside: avoid;
-	-moz-column-gap: 30px;
-	-webkit-column-gap: 30px;
+	/*-moz-column-gap: 30px;
+	-webkit-column-gap: 30px;*/
 	margin-bottom: -8px;
 }
 
@@ -9182,10 +9182,7 @@ html.rd-navbar-fixed-linked .page {
 	touch-action: pan-x;
 }
 
-/* Coverflow */
-.swiper-container-coverflow .swiper-wrapper {
-	/* Windows 8 IE 10 fix */
-}
+
 
 .swiper-container-fade.swiper-container-free-mode .swiper-slide {
 	transition-timing-function: ease-out;
@@ -10595,7 +10592,7 @@ h1 + .tabs-line {
 
 .owl-carousel .owl-stage {
 	position: relative;
-	-ms-touch-action: pan-Y;
+	/*-ms-touch-action: pan-Y;*/
 }
 
 .owl-carousel .owl-stage:after {
@@ -10611,7 +10608,7 @@ h1 + .tabs-line {
 	position: relative;
 	overflow: hidden;
 	/* fix for flashing background */
-	-webkit-transform: translate3d(0px, 0px, 0px);
+/*	-webkit-transform: translate3d(0px, 0px, 0px);*/
 }
 
 .owl-carousel .owl-controls .owl-nav .owl-prev,
@@ -11079,7 +11076,7 @@ h1 + .tabs-line {
 
 .lg-icon {
 	font-family: lg;
-	speak: none;
+	/*speak: none;*/
 	font-style: normal;
 	font-weight: 400;
 	font-variant: normal;
