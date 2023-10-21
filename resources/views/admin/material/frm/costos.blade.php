@@ -17,7 +17,7 @@
                       <select class="select form-control-sm custom-select" id="cliente_id" name="cliente_id">
                           <option selected disabled>Selecciona el Cliente:</option>
                           
-                            @foreach ($cliente as $item)
+                            @foreach ($clientes as $item)
                               <option value="{{$item->id}}">{{$item->razon_social}} </option>
                             @endforeach
                         </select>

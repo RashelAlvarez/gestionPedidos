@@ -2,12 +2,12 @@
 
 @section('titulo')
 
-Turza | Carrito de Compra
+Joyeria | Pedidos
 @endsection
 
 @section('section')
 
-<h3>Carrito de compra</h3>
+<h3>Pedidos</h3>
  
 
 @endsection
@@ -19,13 +19,13 @@ Turza | Carrito de Compra
 {{-- {{Cart::getContent()}} --}}
 <a href="{{route('productad.index')}}" class="btn btn-success"><span class="material-icons">
   reply
-  </span>    Seguir Comprando</a>
+  </span>    Seguir Agregando Productos</a>
 
  
 <div class="col-md-12">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="card-title ">Carrito de Compras</h4>
+        <h4 class="card-title ">Pedidos</h4>
       {{--   Comprobante # {{ str_pad ($model->id, 7, '0', STR_PAD_LEFT) }} --}}
         {{-- <p class="card-category"> Número de Pedido: {{$orden}} </p> --}}
       </div>

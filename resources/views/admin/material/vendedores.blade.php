@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-Turza | Vendedores
+Joyeria | Vendedores
 @endsection
 
 @section('section')
@@ -52,18 +52,18 @@ Turza | Vendedores
          
             </thead>
             <tbody>
-            @foreach ($vendedor as $item)
+            @foreach ($vendedores as $vendedor)
                <tr>   
             <td>{{$loop->iteration}}</td>
             
-            <td >{{$item->nombre}}</td>
-            <td >{{$item->apellido}}</td>
-            <td >{{$item->rif}}</td>
-            <td >{{$item->direccion}}</td>
-            <td >{{$item->telefono}}</td>
+            <td >{{$vendedor->nombre}}</td>
+            <td >{{$vendedor->apellido}}</td>
+            <td >{{$vendedor->rif}}</td>
+            <td >{{$vendedor->direccion}}</td>
+            <td >{{$vendedor->telefono}}</td>
             <td>
        
-                <button  href="{{url('/vendedor/'.$item->id.'/edit')}}"  data-id="{{$item->id}}" onclick="obtenerVendedor('{{$item->id}}')" rel="tooltip" title="Modificar" class="btn btn-warning btn-sm" id="modificarVendedor"  data-toggle="modal" data-target="#frmModificarVendedor" >
+                <button  href="{{url('/vendedor/'.$vendedor->id.'/edit')}}"  data-id="{{$vendedor->id}}" onclick="obtenerVendedor('{{$vendedor->id}}')" rel="tooltip" title="Modificar" class="btn btn-warning btn-sm" id="modificarVendedor"  data-toggle="modal" data-target="#frmModificarVendedor" >
                     <span class="material-icons ">
                       create
                       </span>

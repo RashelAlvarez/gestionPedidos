@@ -10,18 +10,29 @@ use App\Http\Requests\VendedorRequest;
 class VendedorController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware([
+            
+            'auth',  'roles:Administrador,Operador'
+        
+        ]);
+
+       
+    }
+
 
     public function index(){
 
          
-      $vendedor=Vendedor::all();
+      $vendedores=Vendedor::all();
      /*    $vendedor=DB::table('vendedors')
         ->select('vendedors.id', 'vendedors.rif', 'vendedors.direccion', 'vendedors.telefono' )
        
         ->get(); */
 
-
-        return view('admin.material.vendedores' , compact('vendedor'));
+       // dd($vendedores);
+        return view('admin.material.vendedores' , compact('vendedores'));
     }
 
     public function store(VendedorRequest $request){
@@ -42,11 +53,36 @@ class VendedorController extends Controller
     {
      
         $result = Vendedor::findOrFail($id);
-     
+       // dd($result);
        return response()->json($result);
         
-     
+       if($result) {
+        return response()->json([
+            'message' => "Data Found",
+            "code"    => 200,
+            "data"    => $result
+        ]);
+    } else  {
+        return response()->json([
+            'message' => "Internal Server Error",
+            "code"    => 500
+        ]);
+    }
      
 
+    }
+
+    public function update(VendedorRequest $request, $id)
+    {
+    
+        //ACTUALIZAR MENSAJE con eloquent/** */
+        $vendedor = Vendedor::findOrFail($id);
+        //dd($vendedor);
+        $vendedor->update($request->all());
+      
+        //REDIRECCIONAR
+        session()->flash('exito', 'Se ha actualizado los datos correctamente');
+        return redirect('/vendedor');
+    
     }
 }

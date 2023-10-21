@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-Turza | Clientes
+Joyeria | Clientes
 
 @endsection
 

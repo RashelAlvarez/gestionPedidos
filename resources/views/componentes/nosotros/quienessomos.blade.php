@@ -64,7 +64,7 @@
               </div>
 
               <div class="tab-pane fade" id="tabs-4-4">
-                <p id="turza">Somos un equipo que:</p>
+                <p id="joyeria">Somos un equipo que:</p>
                 <div class="text-center text-sm-left offset-top-30">
                 <ul class="row-16 list-0 list-marked list-marked-sm list-marked-secondary">
                     <li>Más allá de solamente cumplir los objetivos lo hacemos rápido y con la menor 
@@ -79,7 +79,7 @@
                   
                 </div>
                 <br>
-                <div id="turza">Somos uno solo… Somos TURZA !!!</div> 
+                <div id="joyeria">Somos uno solo… Somos TURZA !!!</div> 
              
               </div>
             </div>

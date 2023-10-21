@@ -15,8 +15,13 @@ class PrecioProducto extends Model
 
 
 
-    public function producto(){
+  /*  public function producto(){
         return $this->belongsTo(Producto::class);
+    }*/
+
+    public function producto(){
+        return $this->belongsTo(Producto::class); //devuelve un solo objeto
+        //hasMany devuelve un array de objetos relacionados
     }
 
 

@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
 use Illuminate\Http\Request;
 use App\Cliente;
 use App\PrecioProducto;
 use App\Producto;
 use Carbon\Carbon;
 use App\Http\Requests\CostosRequest;
-
+use Illuminate\Support\Facades\DB;
 
 class CostosController extends Controller
 {
@@ -17,6 +16,16 @@ class CostosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware([
+            
+            'auth',  'roles:Administrador,Operador'
+        
+        ]);
+
+       
+    }
     public function index()
     {
         //
@@ -27,10 +36,11 @@ class CostosController extends Controller
         ->join('productos', 'precio_producto.idproducto', '=', 'productos.id')
         ->get();
 
-        $cliente=Cliente::all();
+        //dd($precios);
+        $clientes=Cliente::all();
         $productos=Producto::all();
 
-        return view('admin.material.costos', compact('precios', 'cliente', 'productos'));
+        return view('admin.material.costos', compact('precios', 'clientes', 'productos'));
     }
 
     /**
@@ -86,7 +96,7 @@ class CostosController extends Controller
     public function edit($id)
     {
         //
-        $result= Costos::findOrFail($id);
+        $result= PrecioProducto::findOrFail($id);
         
         return response()->json($result);
     }

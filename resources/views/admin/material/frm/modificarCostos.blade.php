@@ -7,7 +7,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form class="form"  method="post" action="{{route('costos.update', $item->id)}}">
+        <form class="form"  method="post" action="{{route('costos.update', $precio->id)}}">
             {!! csrf_field()  !!}
           
             {{method_field('PATCH')}}
@@ -19,7 +19,7 @@
                       <select class="select form-control-sm custom-select" id="cliente_id" name="idcliente">
                           <option selected disabled>Selecciona el Cliente:</option>
                           
-                            @foreach ($cliente as $item)
+                            @foreach ($clientes as $item)
                               <option value="{{$item->id}}">{{$item->razon_social}} </option>
                             @endforeach
                         </select>

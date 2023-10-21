@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-Turza | Inicio
+Joyeria | Inicio
 @endsection
   
 @section('contenido')

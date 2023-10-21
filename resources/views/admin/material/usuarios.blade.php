@@ -7,7 +7,7 @@ Usuarios
 @endsection --}}
 @section('titulo')
 
-Turza | Usuarios
+Joyeria | Usuarios
 
 @endsection
 

@@ -4,7 +4,7 @@
  
  @section('titulo')
 
-Turza | Productos
+Joyeria | Productos
 
 @endsection
  

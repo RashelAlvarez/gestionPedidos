@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Auth;
 use App\Producto;
 use App\Pedido;

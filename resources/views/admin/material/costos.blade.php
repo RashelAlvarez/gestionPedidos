@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-Turza | Costos
+Joyeria | Costos
 
 @endsection
 
@@ -47,17 +47,17 @@ Turza | Costos
                
                  
                   
-                      @foreach($precios as $item)
+                      @foreach($precios as $precio)
                               
                         
                         <tr>
                          <td>{{$loop->iteration}}</td>
-                         <td>{{$item->razon_social}}</td>
-                        <td>{{$item->nombre}}</td>
-                        <td>{{$item->precio_unitario}}</td>
+                         <td>{{$precio->razon_social}}</td>
+                        <td>{{$precio->nombre}}</td>
+                        <td>{{$precio->precio_unitario}}</td>
                 
                           <td>
-                            <button class="btn btn-warning btn-sm" href="{{url('/costos/'.$item->id.'/edit')}}" data-id="{{$item->id}}"  id="modificarCostos"  onclick="obtenerCostos('{{$item->id}}')" data-toggle="modal" data-target="#frmModificarCostos" > 
+                            <button class="btn btn-warning btn-sm" href="{{url('/costos/'.$precio->id.'/edit')}}" data-id="{{$precio->id}}"  id="modificarCostos"  onclick="obtenerCostos('{{$precio->id}}')" data-toggle="modal" data-target="#frmModificarCostos" > 
                               <span class="material-icons ">
                                 create
                                 </span></button>
